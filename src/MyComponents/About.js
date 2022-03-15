@@ -5,11 +5,8 @@ export const About = () => {
         <div>
             This is an About Component
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cumque
-                cupiditate expedita consequatur commodi eligendi sint soluta pariatur
-                aliquam assumenda, voluptatibus, distinctio minus asperiores ducimus
-                temporibus tempora odio officiis dicta necessitatibus aspernatur
-                delectus voluptates.
+                This is Just an example of CRUD operation made with react. In this todo list you can Make list that you wanted to do in a day. 
+        It is use as a sticky notes for you, you can write the things you wanted to do.
             </p>
         </div>
     )
