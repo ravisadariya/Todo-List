@@ -7,7 +7,7 @@ This project demonstrates the use of **functional components, props, state manag
 
 ## 🚀 Live Demo
 
-👉 https://tomakelist.netlify.app/
+👉 [To Do List](https://tomakelist.netlify.app/)
 ---
 
 ## ✨ Features
