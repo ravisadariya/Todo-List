@@ -1,29 +1,35 @@
 # 📝 Todo List App
 
-A simple and responsive **Todo List Application** built with **React.js**.
-This project demonstrates the use of **functional components, props, state management, and reusable UI** in React.
+## 📌 Overview
+This is a simple and responsive Todo List application built using React.js. It allows users to manage daily tasks efficiently by adding, completing, and deleting todos. The project demonstrates core React concepts such as functional components, state management, and reusable UI components.
+
+---
+
+## 🛠 Tech Stack
+- React.js (Create React App)  
+- JavaScript (ES6+)  
+- HTML5  
+- CSS3  
+
+---
+
+## ✨ Features
+- ➕ Add new tasks dynamically  
+- ✅ Mark tasks as completed  
+- ❌ Delete tasks easily  
+- 📄 Additional About page for application details  
+- 📱 Responsive UI for multiple screen sizes  
 
 ---
 
 ## 🚀 Live Demo
-
-👉 [To Do List](https://tomakelist.netlify.app/)
----
-
-## ✨ Features
-
-* ➕ **Add Tasks** – Quickly add new todos.
-* ✅ **Mark as Completed** – Track finished tasks.
-* ❌ **Delete Tasks** – Remove todos easily.
-* 📄 **About Page** – Simple extra page for app info.
-* 🎨 **Responsive UI** – Clean styling with CSS.
+🔗 [To Do List](https://tomakelist.netlify.app/)
 
 ---
 
-## 🛠️ Tech Stack
-
-* **Frontend:** React.js (Create React App)
-* **Language:** JavaScript (ES6+), JSX
-* **Styling:** CSS3
-* **Version Control:** Git & GitHub
-  
+## ⚙️ Installation & Setup
+```bash
+git clone https://github.com/ravisadariya/Todo-List.git
+cd Todo-List
+npm install
+npm start
