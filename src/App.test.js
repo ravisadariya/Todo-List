@@ -15,6 +15,8 @@ test('renders the todo app home page', () => {
     screen.getByRole('heading', { name: /add a todo/i })
   ).toBeInTheDocument();
   expect(screen.getByText(/no todos to display/i)).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /board/i })).not.toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /calendar/i })).not.toBeInTheDocument();
 });
 
 test('adds and deletes a todo', () => {
@@ -35,4 +37,6 @@ test('adds and deletes a todo', () => {
 
   expect(screen.queryByText('Buy milk')).not.toBeInTheDocument();
   expect(screen.getByText(/no todos to display/i)).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /board/i })).not.toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /calendar/i })).not.toBeInTheDocument();
 });

@@ -6,14 +6,10 @@ export const Todos = (props) => {
     <section className="task-database">
       <div className="database-toolbar">
         <div className="block-heading compact">
-          <span className="block-eyebrow">Database</span>
+          <span className="block-eyebrow">Task list</span>
           <h2>Todos List</h2>
         </div>
-        <div className="view-tabs" aria-label="Database views">
-          <button type="button" className="is-active">Table</button>
-          <button type="button">Board</button>
-          <button type="button">Calendar</button>
-        </div>
+        <p className="view-note">Simple table view</p>
       </div>
 
       {props.todos.length === 0
