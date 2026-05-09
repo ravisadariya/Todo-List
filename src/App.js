@@ -11,49 +11,53 @@ import {
   Route,
 } from "react-router-dom";
 
+const loadTodos = () => {
+  const savedTodos = localStorage.getItem("todos");
+
+  if (!savedTodos) {
+    return [];
+  }
+
+  try {
+    const parsedTodos = JSON.parse(savedTodos);
+    return Array.isArray(parsedTodos) ? parsedTodos : [];
+  } catch (error) {
+    console.warn("Unable to load saved todos from localStorage.", error);
+    return [];
+  }
+};
+
 function App() {
-  let initTodo;
-  if (localStorage.getItem("todos") === null) {
-    initTodo = [];
-  }
-  else {
-    initTodo = JSON.parse(localStorage.getItem("todos"));
-  }
+  const [todos, setTodos] = useState(loadTodos);
 
   const onDelete = (todo) => {
-    console.log("I m OnDelete", todo);
-
-
-
-
-
-    setTodos(todos.filter((e) => {
-      return e !== todo;
-    }));
-
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }
+    setTodos((currentTodos) =>
+      currentTodos.filter((item) => item.sno !== todo.sno)
+    );
+  };
 
   const addTodo = (title, desc) => {
-    console.log("im adding this todo", title, desc)
-    let sno;
-    if (todos.length === 0) {
-      sno = 0;
-    }
-    else {
-      sno = todos[todos.length - 1].sno + 1;
-    }
-    const myTodo = {
-      sno: sno,
-      title: title,
-      desc: desc
-    }
-    setTodos([...todos, myTodo]);
-  }
-  const [todos, setTodos] = useState(initTodo);
+    const trimmedTitle = title.trim();
+    const trimmedDesc = desc.trim();
+
+    setTodos((currentTodos) => {
+      const nextSno =
+        currentTodos.length === 0
+          ? 0
+          : Math.max(...currentTodos.map((todo) => todo.sno)) + 1;
+      const myTodo = {
+        sno: nextSno,
+        title: trimmedTitle,
+        desc: trimmedDesc,
+      };
+
+      return [...currentTodos, myTodo];
+    });
+  };
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos])
+  }, [todos]);
 
   return (
     <>
@@ -62,20 +66,16 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-            <AddTodo addTodo={addTodo} />
-            <Todos todos={todos} onDelete={onDelete} />
+              <AddTodo addTodo={addTodo} />
+              <Todos todos={todos} onDelete={onDelete} />
             </>
-          } >
+          }>
           </Route>
-          <Route path="/about" element={<About />} >
+          <Route path="/about" element={<About />}>
           </Route>
-          
         </Routes>
-
-
         <Footer />
       </Router>
-
     </>
   );
 }

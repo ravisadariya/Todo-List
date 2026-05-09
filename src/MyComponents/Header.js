@@ -32,7 +32,10 @@ export default function Header(props) {
               </Link>
             </li>
           </ul>
-          <form className="d-flex">
+          <form
+            className="d-flex"
+            onSubmit={(event) => event.preventDefault()}
+          >
             <input
               className="form-control me-2"
               type="search"

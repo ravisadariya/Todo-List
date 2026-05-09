@@ -6,8 +6,8 @@ export const AddTodo = ({ addTodo }) => {
 
   const submit = (e) => {
     e.preventDefault();
-    if (!title || !desc) {
-      alert("Title or Desc Cannot b Blank");
+    if (!title.trim() || !desc.trim()) {
+      alert("Title and description cannot be blank.");
     } else {
       addTodo(title, desc);
       setTitle("");
@@ -29,7 +29,6 @@ export const AddTodo = ({ addTodo }) => {
             onChange={(e) => setTitle(e.target.value)}
             className="form-control"
             id="title"
-            aria-describedby="emailHelp"
           />
         </div>
         <div className="mb-3">
