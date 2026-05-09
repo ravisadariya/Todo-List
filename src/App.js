@@ -60,8 +60,8 @@ function App() {
   }, [todos]);
 
   return (
-    <>
-      <Router>
+    <Router>
+      <div className="app-shell">
         <Header title="My Todos List" />
         <Routes>
           <Route path="/" element={

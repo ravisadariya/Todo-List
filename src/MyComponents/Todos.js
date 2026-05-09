@@ -2,13 +2,12 @@ import React from "react";
 import { TodoItem } from "./TodoItem";
 
 export const Todos = (props) => {
-  let myStyle = {
-    minHeight: "70vh",
-    margin: "40px auto"
-  };
   return (
-    <div className="container" style={myStyle}>
-      <h3 className=" my-3">Todos List</h3>
+    <div className="todos-panel">
+      <div className="section-heading compact">
+        <span className="section-kicker">Your lineup</span>
+        <h2>Todos List</h2>
+      </div>
       {props.todos.length === 0
         ? "No todos to display"
         : props.todos.map((todo) => {
