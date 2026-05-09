@@ -66,6 +66,32 @@ function App() {
   };
 
   const addTodo = (title, desc, priority = "Medium") => {
+const loadTodos = () => {
+  const savedTodos = localStorage.getItem("todos");
+
+  if (!savedTodos) {
+    return [];
+  }
+
+  try {
+    const parsedTodos = JSON.parse(savedTodos);
+    return Array.isArray(parsedTodos) ? parsedTodos : [];
+  } catch (error) {
+    console.warn("Unable to load saved todos from localStorage.", error);
+    return [];
+  }
+};
+
+function App() {
+  const [todos, setTodos] = useState(loadTodos);
+
+  const onDelete = (todo) => {
+    setTodos((currentTodos) =>
+      currentTodos.filter((item) => item.sno !== todo.sno)
+    );
+  };
+
+  const addTodo = (title, desc) => {
     const trimmedTitle = title.trim();
     const trimmedDesc = desc.trim();
 
@@ -84,6 +110,9 @@ function App() {
       };
 
       return [myTodo, ...currentTodos];
+      };
+
+      return [...currentTodos, myTodo];
     });
   };
 
@@ -168,6 +197,22 @@ function App() {
         <Footer />
       </div>
     </Router>
+      <div className="app-shell">
+        <Header title="My Todos List" />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <AddTodo addTodo={addTodo} />
+              <Todos todos={todos} onDelete={onDelete} />
+            </>
+          }>
+          </Route>
+          <Route path="/about" element={<About />}>
+          </Route>
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
