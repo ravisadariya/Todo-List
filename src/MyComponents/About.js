@@ -2,12 +2,18 @@ import React from "react";
 
 export const About = () => {
     return (
-        <div>
-            This is an About Component
-            <p>
-                This is Just an example of CRUD operation made with react. In this todo list you can Make list that you wanted to do in a day. 
-        It is use as a sticky notes for you, you can write the things you wanted to do.
-            </p>
-        </div>
+        <section className="about-page">
+            <div className="about-document">
+                <span className="page-icon" aria-hidden="true">✓</span>
+                <p className="breadcrumb">Todo HQ / About</p>
+                <h1>Designed like a lightweight Notion workspace.</h1>
+                <p>
+                    This todo list is a React CRUD example for capturing daily tasks
+                    in a clean document-style interface. It uses database-inspired
+                    rows, priority properties, and quick capture to make planning feel
+                    organized without becoming complicated.
+                </p>
+            </div>
+        </section>
     )
 }
