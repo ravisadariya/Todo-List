@@ -106,9 +106,11 @@ function App() {
                         <small>Personal workspace</small>
                       </div>
                     </div>
-                    <nav className="sidebar-links" aria-label="Todo sections">
+                    <nav className="sidebar-links" aria-label="Todo views">
                       <a href="#today" className="is-active">Today</a>
-                      <a href="#database">Task list</a>
+                      <a href="#database">Task database</a>
+                      <a href="#priorities">Priorities</a>
+                      <a href="#archive">Archive</a>
                     </nav>
                     <div className="sidebar-note">
                       <span>Progress</span>
@@ -126,8 +128,8 @@ function App() {
                       <p className="breadcrumb">Todo HQ / Today</p>
                       <h1>Today&apos;s task command center</h1>
                       <p>
-                        A focused todo workspace with quick capture, priority tags,
-                        completion tracking, and a simple task table.
+                        A Notion-inspired task page with database views, quick capture,
+                        priority tags, and a calm workspace for focused planning.
                       </p>
                     </div>
 
