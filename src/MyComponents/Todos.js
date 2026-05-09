@@ -1,19 +1,15 @@
-import React from "react";
-import { TodoItem } from "./TodoItem";
+import React from 'react';
+import { TodoItem } from './TodoItem';
 
 export const Todos = (props) => {
   return (
     <section className="task-database">
       <div className="database-toolbar">
         <div className="block-heading compact">
-          <span className="block-eyebrow">Database</span>
+          <span className="block-eyebrow">Task list</span>
           <h2>Todos List</h2>
         </div>
-        <div className="view-tabs" aria-label="Database views">
-          <button type="button" className="is-active">Table</button>
-          <button type="button">Board</button>
-          <button type="button">Calendar</button>
-        </div>
+        <p className="view-note">Simple table view</p>
       </div>
 
       {props.todos.length === 0
@@ -46,18 +42,5 @@ export const Todos = (props) => {
           </div>
         )}
     </section>
-    <div className="todos-panel">
-      <div className="section-heading compact">
-        <span className="section-kicker">Your lineup</span>
-        <h2>Todos List</h2>
-      </div>
-      {props.todos.length === 0
-        ? "No todos to display"
-        : props.todos.map((todo) => {
-            return (
-              <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} />
-            );
-          })}
-    </div>
   );
 };
