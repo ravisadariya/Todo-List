@@ -9,27 +9,12 @@ export const Todos = (props) => {
         <h2>Todos List</h2>
       </div>
       {props.todos.length === 0
-        ? (
-          <div className="empty-state">
-            <div className="empty-icon" aria-hidden="true">✓</div>
-            <h3>No todos to display</h3>
-            <p>Add your first task and start building momentum.</p>
-          </div>
-        )
-        : (
-          <div className="todo-list">
-            {props.todos.map((todo, index) => {
-              return (
-                <TodoItem
-                  todo={todo}
-                  key={todo.sno}
-                  onDelete={props.onDelete}
-                  index={index}
-                />
-              );
-            })}
-          </div>
-        )}
+        ? "No todos to display"
+        : props.todos.map((todo) => {
+            return (
+              <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} />
+            );
+          })}
     </div>
   );
 };
